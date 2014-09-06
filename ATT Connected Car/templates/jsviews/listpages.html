@@ -1,0 +1,53 @@
+<!-- Example Template for Clickslide data model -->
+<div class="container">
+    <div class="row">
+        {{!-- {{myCustomTitleComponent title}} --}}
+        <h2 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{:title}}</h2>
+    </div>
+    {{!--
+    {{if :search == 1}}
+    {{myCustomSearchComponent}} 
+    --}}
+    <div class="row" id="searchBarHolder">
+    </div>
+    {{!--
+    {{/if}}
+    --}}
+     <div class="row">
+        <p class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Click a tweet to retweet.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        {{for pages.BasicPage}}
+        <div class="panel-group col-xs-12 col-sm-6 col-md-3 col-lg-3" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-content="title" data-toggle="collapse" data-parent="#accordion" href="#collapse{{:#index}}">
+                            {{:title}}
+                        </a>
+                    </h4>
+                    <p data-content="pageText">{{:pageText}}</p>
+                </div>
+                <div id="collapse{{:#index}}" class="panel-collapse collapse">
+                    <div class="panel-body" id="scrollwrapper">
+                        <!-- Tweet list goes here-->
+                        <ul class="list-group">
+                            {{for searchPage.ListPage.pages.BasicPage}}
+                            <!--load list of child pages here -->
+                            <a id="{{:#index}}-{{:uniqueApiId}}" href="#{{:uniqueApiId}}" class="list-group-item tweet-retweet">
+                                <img class="pull-left" data-src="holder.js/100x100" />
+                                <h4 class="list-group-item-heading tweeter" data-content="title">{{:title}}</h4>
+                                <p class="list-group-item-text tweet" data-content="pageText">{{:pageText}}</p>
+
+                            </a>
+                            {{else}} No Tweets Found. {{/for}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/for}}
+    </div>
+</div>

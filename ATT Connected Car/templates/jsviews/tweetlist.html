@@ -1,0 +1,18 @@
+<!-- Example Template for Clickslide data model -->
+<div class="container">
+    <div class="row">
+        <h2 class="col-xs-12 col-sm-12 col-md-12 col-lg-12">{{:title}}</h2>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="list-group">
+            {{for pages.BasicPage}}
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">{{:title}}</h4>
+                <p class="list-group-item-text">{{:pageText}}</p>
+            </a>
+            {{/for}}
+        </div>
+    </div>
+</div>

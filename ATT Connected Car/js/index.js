@@ -119,6 +119,12 @@ var app = {
                                         $("#notation").html(Math.round(timed)+"min... and counting");
                                         if(tick == 100){
                                             clearInterval(int);
+                                            $("#app").html('');
+                                            $('html').css('background', 'none');
+                                            $('body').css(
+                                                "background" ,'url("/img/backgroundUSB.png") no-repeat center center');
+                                            $('body').css("background-size", 'cover');
+                                            $('body').css("min-height", '100%');
                                         }
                                     }, 100);
                                 }
